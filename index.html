@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>电商图片下载助手 - 官网</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: #1f2329; background: #fff; line-height: 1.7; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero { background: linear-gradient(160deg, #fff7f4 0%, #fff 60%); padding: 72px 0 64px; }
+    .hero-inner { display: flex; align-items: center; gap: 48px; }
+    .hero-text { flex: 1; }
+    .badge { display: inline-block; background: #ffe9e3; color: #ff4f2e; font-size: 13px; padding: 4px 12px; border-radius: 999px; margin-bottom: 16px; font-weight: 600; }
+    .hero h1 { font-size: 40px; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; }
+    .hero h1 span { color: #ff4f2e; }
+    .hero p.sub { font-size: 16px; color: #5a6068; max-width: 480px; margin-bottom: 28px; }
+    .btn { display: inline-block; background: #ff4f2e; color: #fff; font-size: 15px; font-weight: 600; padding: 12px 28px; border-radius: 8px; text-decoration: none; transition: all .2s; box-shadow: 0 4px 14px rgba(255,79,46,.25); }
+    .btn:hover { opacity: .88; transform: translateY(-1px); }
+    .btn.secondary { background: #fff; color: #ff4f2e; border: 1.5px solid #ff4f2e; box-shadow: none; margin-left: 12px; }
+    .hero-visual { flex: 1; background: #fff; border-radius: 16px; padding: 18px; box-shadow: 0 16px 40px rgba(31,35,41,.08); border: 1px solid #f0f1f3; }
+    .hero-visual .mock-bar { background: #f5f6f8; border-radius: 8px; padding: 8px 12px; font-size: 12px; color: #8a909a; margin-bottom: 12px; }
+    .mock-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .mock-grid .cell { aspect-ratio: 1; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; }
+    .c1 { background: #ff4f2e; } .c2 { background: #ff8a65; } .c3 { background: #ffb74d; }
+    .c4 { background: #4fc3f7; } .c5 { background: #66bb6a; } .c6 { background: #9e9dff; }
+    .mock-tip { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 13px; color: #5a6068; }
+    .mock-tip .chip { background: #ffe9e3; color: #ff4f2e; padding: 3px 10px; border-radius: 6px; font-weight: 600; font-size: 12px; }
+
+    /* 特性 */
+    .section { padding: 64px 0; }
+    .section h2 { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 10px; }
+    .section .lead { text-align: center; color: #5a6068; font-size: 14px; margin-bottom: 36px; }
+    .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .feature { border: 1px solid #f0f1f3; border-radius: 12px; padding: 24px 20px; transition: all .2s; }
+    .feature:hover { box-shadow: 0 8px 24px rgba(31,35,41,.06); transform: translateY(-2px); }
+    .feature .icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; color: #fff; }
+    .i1 { background: #ff4f2e; } .i2 { background: #ff8a65; } .i3 { background: #4fc3f7; } .i4 { background: #66bb6a; }
+    .feature h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .feature p { font-size: 13px; color: #5a6068; }
+
+    /* 使用步骤 */
+    .steps { background: #fafbfc; }
+    .step-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .step { background: #fff; border-radius: 12px; padding: 20px; position: relative; }
+    .step .num { width: 28px; height: 28px; border-radius: 50%; background: #ff4f2e; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+    .step h4 { font-size: 15px; margin-bottom: 6px; }
+    .step p { font-size: 13px; color: #5a6068; }
+
+    /* 安装 */
+    .install { text-align: center; }
+    .install code { display: inline-block; background: #f5f6f8; border: 1px solid #e8eaee; border-radius: 6px; padding: 3px 10px; font-size: 13px; color: #4a4f57; margin: 2px; }
+    .install .box { max-width: 640px; margin: 0 auto; background: #fff; border: 1px dashed #ffb59e; border-radius: 12px; padding: 20px; font-size: 14px; color: #4a4f57; text-align: left; }
+
+    /* FAQ */
+    .faq { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid #f0f1f3; padding: 18px 0; }
+    .faq-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .faq-item p { font-size: 14px; color: #5a6068; }
+
+    footer { background: #1f2329; color: #9aa0a8; text-align: center; padding: 28px 0; font-size: 13px; }
+
+    /* 移动端 */
+    @media (max-width: 768px) {
+      .hero { padding: 48px 0 40px; }
+      .hero-inner { flex-direction: column; gap: 28px; }
+      .hero h1 { font-size: 28px; }
+      .hero-visual { width: 100%; }
+      .features, .step-list { grid-template-columns: repeat(2, 1fr); }
+      .section { padding: 48px 0; }
+    }
+    @media (max-width: 480px) {
+      .features, .step-list { grid-template-columns: 1fr; }
+      .btn.secondary { margin-left: 0; margin-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="badge">Chrome 扩展 · 免费开源</span>
+        <h1>电商图片<span>下载助手</span></h1>
+        <p class="sub">打开任意电商商品详情页，一键抓取页面全部图片，支持单张下载，也能打包成 ZIP 一次带走。</p>
+        <a class="btn" href="#install">立即安装</a>
+        <a class="btn secondary" href="#usage">查看使用教程</a>
+      </div>
+      <div class="hero-visual">
+        <div class="mock-bar">🛒 商品详情页 · 已抓取 8 张图片</div>
+        <div class="mock-grid">
+          <div class="cell c1">🛍️</div><div class="cell c2">👟</div><div class="cell c3">🧢</div>
+          <div class="cell c4">📱</div><div class="cell c5">⌚</div><div class="cell c6">🎧</div>
+        </div>
+        <div class="mock-tip"><span>勾选所需图片</span><span class="chip">打包 ZIP 下载</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特性 -->
+  <section class="section">
+    <div class="container">
+      <h2>主要功能</h2>
+      <p class="lead">围绕「抓取 → 预览 → 下载」设计的轻量工具</p>
+      <div class="features">
+        <div class="feature"><div class="icon i1">🔍</div><h3>一键抓取</h3><p>自动识别普通图片、懒加载图片、响应式 srcset 与背景图，无需手动找地址。</p></div>
+        <div class="feature"><div class="icon i2">🖼️</div><h3>缩略图预览</h3><p>弹窗内网格展示全部图片，所见即所得，勾选需要保留的素材。</p></div>
+        <div class="feature"><div class="icon i3">⤓</div><h3>单张下载</h3><p>鼠标悬停图片即可单独下载，文件名自动从链接中解析，避免乱码。</p></div>
+        <div class="feature"><div class="icon i4">📦</div><h3>ZIP 打包</h3><p>多张图片一键打包为 ZIP 压缩包，一次下载、随用随取。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用步骤 -->
+  <section class="section steps" id="usage">
+    <div class="container">
+      <h2>三步开始使用</h2>
+      <p class="lead">无需任何代码知识，打开浏览器即可</p>
+      <div class="step-list">
+        <div class="step"><div class="num">1</div><h4>打开电商详情页</h4><p>在淘宝、京东、拼多多等任意电商平台打开一个商品详情页。</p></div>
+        <div class="step"><div class="num">2</div><h4>点击插件图标</h4><p>点击浏览器右上角的「电商图片下载助手」图标，页面图片自动抓取完成。</p></div>
+        <div class="step"><div class="num">3</div><h4>下载图片</h4><p>勾选需要的图片，点击「下载选中」或「打包 ZIP」，图片即可保存到本地。</p></div>
+        <div class="step"><div class="num">4</div><h4>完成</h4><p>图片默认保存到浏览器的「下载」文件夹，随时取用，素材管理更高效。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 安装 -->
+  <section class="section install" id="install">
+    <div class="container">
+      <h2>安装与发布</h2>
+      <p class="lead">开发者模式加载，两步搞定</p>
+      <div class="box">
+        <strong>步骤：</strong><br />
+        1. 打开 Chrome，地址栏输入 <code>chrome://extensions</code> 并回车<br />
+        2. 打开右上角「开发者模式」开关<br />
+        3. 点击「加载已解压的扩展程序」，选择本项目的文件夹<br />
+        4. 打开任意电商详情页，点击工具栏插件图标即可使用
+      </div>
+      <p style="margin-top:28px;">
+        <a class="btn" href="#" onclick="alert('插件打包 ZIP 文件：请从项目目录打包 ecom-img-downloader 文件夹后发布到 GitHub，此按钮为演示占位');return false;">下载插件 ZIP</a>
+      </p>
+      <p style="margin-top:14px; font-size:13px; color:#8a909a;">项目已通过 Git 管理，发布到 GitHub Pages 后此处将替换为正式下载地址。</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <h2>常见问题</h2>
+      <div class="faq">
+        <div class="faq-item"><h4>为什么有的图片下载失败？</h4><p>部分平台对图片做了防盗链或跨域限制，打包时会自动跳过失败的图片，单张下载一般不受影响。</p></div>
+        <div class="faq-item"><h4>抓到的图片会保存到哪里？</h4><p>默认保存到浏览器的下载目录，文件名以图片链接解析出的名称命名，打包下载统一为「电商图片打包.zip」。</p></div>
+        <div class="faq-item"><h4>插件会不会上传我的数据？</h4><p>不会。所有图片抓取与打包都在本地浏览器完成，代码开源可查，不收集任何用户数据。</p></div>
+        <div class="faq-item"><h4>支持哪些浏览器？</h4><p>支持 Chrome / Edge（基于 Chromium），Firefox 可参考代码自行适配。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">电商图片下载助手 · AI 编程工具实战培训作业 · 2026</div>
+  </footer>
+</body>
+</html>
