@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>模拟电商商品详情页（插件测试用）</title>
+  <style>
+    body { font-family: "Microsoft YaHei", sans-serif; max-width: 760px; margin: 0 auto; padding: 20px; }
+    h1 { color: #333; }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
+    .gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
+    .lazy-block { background: #f0f0f0; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
+    .tips { background: #fdf6ec; border-left: 4px solid #e6a23c; padding: 10px 14px; border-radius: 4px; font-size: 13px; line-height: 1.8; }
+  </style>
+</head>
+<body>
+  <h1>测试商品详情页</h1>
+  <div class="tips">
+    打开本页后点击浏览器右上角插件图标，应能看到下面这些图片被全部抓取：<br />
+    1. 普通 &lt;img&gt; 图片（3 张）<br />
+    2. 懒加载 data-src 图片（3 张）<br />
+    3. srcset 响应式图片（1 张）<br />
+    4. 背景图（1 张）
+  </div>
+
+  <div class="gallery">
+    <img src="https://picsum.photos/seed/a1/400/400" alt="商品图1" />
+    <img src="https://picsum.photos/seed/a2/400/400" alt="商品图2" />
+    <img src="https://picsum.photos/seed/a3/400/400" alt="商品图3" />
+  </div>
+
+  <div class="gallery">
+    <img data-src="https://picsum.photos/seed/b1/400/400" alt="懒加载图1" />
+    <img data-src="https://picsum.photos/seed/b2/400/400" alt="懒加载图2" />
+    <img data-src="https://picsum.photos/seed/b3/400/400" alt="懒加载图3" />
+  </div>
+
+  <img src="https://picsum.photos/seed/c1/600/600 600w, https://picsum.photos/seed/c1/1200/1200 1200w"
+       srcset="https://picsum.photos/seed/c1/600/600 600w, https://picsum.photos/seed/c1/1200/1200 1200w"
+       alt="响应式图" style="width:100%; border-radius:8px;" />
+
+  <div class="lazy-block" style="background-image:url('https://picsum.photos/seed/d1/800/200'); background-size:cover; background-position:center;">
+    背景图区域
+  </div>
+</body>
+</html>
