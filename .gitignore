@@ -1,4 +1,5 @@
 node_modules/
 *.zip
+!ecom-img-downloader.zip
 .DS_Store
 Thumbs.db
